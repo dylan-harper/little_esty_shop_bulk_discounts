@@ -74,4 +74,13 @@ RSpec.describe 'merchant bulk discount index page' do
       expect(page).to_not have_content("Memorial Day")
     end
   end
+
+  it 'has a link to create a new bulk discount' do
+    expect(page).to have_content("Create Bulk Discount")
+
+    click_link "Create Bulk Discount"
+
+    expect(current_path).to eq("/merchant/#{@merchant1.id}/bulk_discounts/new")
+  end
+
 end
