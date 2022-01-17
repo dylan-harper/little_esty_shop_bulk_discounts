@@ -54,10 +54,12 @@ RSpec.describe 'merchant bulk discount index page' do
   end
 
   it 'displays information for the merchants bulk discounts' do
-    expect(page).to have_content(@discount_1.percent_discount).and(have_content(@discount_1.quantity_threshold))
-    expect(page).to have_content(@discount_2.percent_discount).and(have_content(@discount_1.quantity_threshold))
-    expect(page).to have_content(@discount_3.percent_discount).and(have_content(@discount_1.quantity_threshold))
-    expect(page).to have_content(@discount_4.percent_discount).and(have_content(@discount_1.quantity_threshold))
+    within("#bulk-discounts") do
+      expect(page).to have_content(@discount_1.percent_discount).and(have_content(@discount_1.quantity_threshold))
+      expect(page).to have_content(@discount_2.percent_discount).and(have_content(@discount_1.quantity_threshold))
+      expect(page).to have_content(@discount_3.percent_discount).and(have_content(@discount_1.quantity_threshold))
+      expect(page).to have_content(@discount_4.percent_discount).and(have_content(@discount_1.quantity_threshold))
+    end
   end
 
   it 'has a link to each bulk discount show page' do
@@ -81,6 +83,26 @@ RSpec.describe 'merchant bulk discount index page' do
     click_link "Create Bulk Discount"
 
     expect(current_path).to eq("/merchant/#{@merchant1.id}/bulk_discounts/new")
+  end
+
+  it 'has a link to delete a bulk discount' do
+    within("#bulk-discounts") do
+      expect(page).to have_link("Delete ##{@discount_1.id}")
+      expect(page).to have_link("Delete ##{@discount_2.id}")
+      expect(page).to have_link("Delete ##{@discount_3.id}")
+      expect(page).to have_link("Delete ##{@discount_4.id}")
+    end
+
+    click_link("Delete ##{@discount_1.id}")
+
+    expect(current_path).to eq("/merchant/#{@merchant1.id}/bulk_discounts")
+
+    within("#bulk-discounts") do
+      expect(page).to_not have_link("Delete ##{@discount_1.id}")
+      expect(page).to have_link("Delete ##{@discount_2.id}")
+      expect(page).to have_link("Delete ##{@discount_3.id}")
+      expect(page).to have_link("Delete ##{@discount_4.id}")
+    end
   end
 
 end
