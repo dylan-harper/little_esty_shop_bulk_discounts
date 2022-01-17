@@ -20,7 +20,13 @@ class BulkDiscountsController < ApplicationController
                          percent_discount: bd_params[:percent_discount],
                          quantity_threshold: bd_params[:quantity_threshold]
                          )
-                         
+
+    redirect_to action: :index
+  end
+
+  def destroy
+    BulkDiscount.find(params[:id]).destroy
+
     redirect_to action: :index
   end
 

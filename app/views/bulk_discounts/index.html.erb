@@ -16,12 +16,14 @@
 
   <p><%= link_to "Create Bulk Discount", new_merchant_bulk_discount_path(@bulk_discounts.first.merchant.id) %></p>
 
-
+  <div id="bulk-discounts">
   <% @bulk_discounts.each do |discount| %>
     <li><%= link_to "Bulk Discount ##{discount.id}", merchant_bulk_discount_path(@bulk_discounts.first.merchant, discount) %>
     <li>Percent Discount: <%= discount.percent_discount %>
     <li>Quantity Threshold: <%= discount.quantity_threshold %>
+    <li><%= link_to "Delete ##{discount.id}", merchant_bulk_discount_path(@bulk_discounts.first.merchant, discount), method: :delete %>
   <% end %>
+  </div>
 
   <div class="row">
     <p class='col-12'>Upcoming Holidays</p>
