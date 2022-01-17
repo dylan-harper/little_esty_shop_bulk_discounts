@@ -24,7 +24,7 @@
     <p class='col-12'>Upcoming Holidays</p>
   </div>
   <div id="upcoming-holidays">
-    <% @facade.holidays.each do |holiday| %>
+    <% @facade.holidays.first(3).each do |holiday| %>
       <p><%= holiday.name %>, <%= holiday.date %></p>
     <% end %>
   </div>

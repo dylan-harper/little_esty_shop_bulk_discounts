@@ -71,7 +71,7 @@ RSpec.describe 'merchant bulk discount index page' do
       expect(page).to have_content("Martin Luther King, Jr. Day, 2022-01-17")
       expect(page).to have_content("Washington's Birthday, 2022-02-21")
       expect(page).to have_content("Good Friday, 2022-04-15")
-      # expect(page).to have_content("Memorial Day")
+      expect(page).to_not have_content("Memorial Day")
     end
   end
 end
