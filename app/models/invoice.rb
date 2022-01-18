@@ -27,6 +27,6 @@ class Invoice < ApplicationRecord
 
 
   def bd_total_revenue
-
+    total_revenue * (1 - discount_amount)
   end
 end
