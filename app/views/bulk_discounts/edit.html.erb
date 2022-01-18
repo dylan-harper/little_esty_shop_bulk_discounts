@@ -1,0 +1,12 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <p class="navbar-text"><%= @merchant.name %></p>
+  <ul class="nav navbar-nav">
+    <li><%= link_to 'Dashboard', merchant_dashboard_index_path, style: 'pull-right' %>
+    <%= link_to 'My Items', merchant_items_path(@merchant), style: 'pull-right' %>
+    <%= link_to 'My Invoices', merchant_invoices_path(@merchant), style: 'pull-right' %></li>
+    <li><%= link_to 'Bulk Discounts', merchant_bulk_discounts_path, class: 'link_1', style: 'pull-right' %>
+  </ul>
+</nav>
+</div>
+
+<%= render partial: 'form', locals: { method: :patch, url: merchant_bulk_discount_path(@merchant, @bulk_discount), class: 'merchant_bulk_discount_form', local: true, model: @bulk_discount } %>
