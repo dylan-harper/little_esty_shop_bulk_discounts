@@ -17,8 +17,18 @@ class BulkDiscountsController < ApplicationController
   def edit
     #do I need this
     @bulk_discount = BulkDiscount.find(params[:id])
+    @merchant = Merchant.find(params[:merchant_id])
+  end
 
-  
+  def update
+    bulk_discount = BulkDiscount.find(params[:id])
+
+    bulk_discount.update(
+                         percent_discount: params[:bulk_discount][:percent_discount],
+                         quantity_threshold: params[:bulk_discount][:quantity_threshold]
+                         )
+
+    redirect_to action: :show
   end
 
   def create
@@ -43,7 +53,8 @@ class BulkDiscountsController < ApplicationController
   def bd_params
     params.permit(:percent_discount,
                   :quantity_threshold,
-                  :merchant_id)
+                  :merchant_id,
+                  :bulk_discount)
   end
 
 end
