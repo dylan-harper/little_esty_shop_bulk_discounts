@@ -14,8 +14,9 @@ RSpec.describe 'the bulk discount edit page' do
 
   xit 'autopopulates current values' do
     #Works but not picking up on the autofilled values
-    expect(page).to have_content("Percent discount")
-    expect(page).to have_content("Quantity threshold")
+    expect(page).to have_content("Percent discount #{@discount_1.percent_discount}")
+    expect(page).to have_content("Quantity threshold #{@discount_1.quantity_threshold}")
+
     expect(page).to have_content(@discount_1.percent_discount)
     expect(page).to have_content(@discount_1.quantity_threshold)
   end
