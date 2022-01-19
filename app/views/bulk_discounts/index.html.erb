@@ -1,6 +1,5 @@
 <div class="nav-container">
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <p class="navbar-text"><%= @bulk_discounts.first.merchant.name %></p>
     <ul class="nav navbar-nav">
       <li><%= link_to 'Dashboard', merchant_dashboard_index_path, style: 'pull-right' %>
       <%= link_to 'My Items', merchant_items_path(@bulk_discounts.first.merchant), style: 'pull-right' %>
