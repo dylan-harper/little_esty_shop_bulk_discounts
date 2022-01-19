@@ -3,4 +3,5 @@ class BulkDiscount < ApplicationRecord
                             :quantity_threshold
 
   belongs_to :merchant
+  
 end
