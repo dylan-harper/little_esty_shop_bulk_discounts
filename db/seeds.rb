@@ -2,7 +2,7 @@ merchant_1 = Merchant.create!(name: 'Billys Pet Rocks', status: 0)
 merchant_2 = Merchant.create!(name: 'Jimmy Pet Stones', status: 1)
 
 discount_1 = merchant_1.bulk_discounts.create!(percent_discount: 0.20, quantity_threshold: 10)
-discount_2 = merchant_1.bulk_discounts.create!(percent_discount: 0.30, quantity_threshold: 15)
+discount_2 = merchant_1.bulk_discounts.create!(percent_discount: 0.30, quantity_threshold: 12)
 discount_3 = merchant_1.bulk_discounts.create!(percent_discount: 0.35, quantity_threshold: 20)
 discount_4 = merchant_1.bulk_discounts.create!(percent_discount: 0.40, quantity_threshold: 25)
 
@@ -27,6 +27,7 @@ invoice_3 = customer_3.invoices.create!(status: 'complete')
 invoice_4 = customer_4.invoices.create!(status: 'complete')
 invoice_5 = customer_5.invoices.create!(status: 'complete')
 invoice_6 = customer_6.invoices.create!(status: 'complete')
+invoice_7 = customer_6.invoices.create!(status: 'complete')
 
 transaction_1 = invoice_1.transactions.create!(credit_card_number: '1234123412341234', credit_card_expiration_date: '11/22', result: 'success')
 transaction_2 = invoice_2.transactions.create!(credit_card_number: '1234123412341234', credit_card_expiration_date: '11/22', result: 'success')
@@ -34,6 +35,7 @@ transaction_3 = invoice_3.transactions.create!(credit_card_number: '123412341234
 transaction_4 = invoice_4.transactions.create!(credit_card_number: '1234123412341234', credit_card_expiration_date: '11/22', result: 'success')
 transaction_5 = invoice_5.transactions.create!(credit_card_number: '1234123412341234', credit_card_expiration_date: '11/22', result: 'success')
 transaction_6 = invoice_6.transactions.create!(credit_card_number: '1234123412341234', credit_card_expiration_date: '11/22', result: 'failed')
+transaction_7 = invoice_7.transactions.create!(credit_card_number: '1234123412341234', credit_card_expiration_date: '11/22', result: 'success')
 
 transaction_7 = invoice_1.transactions.create!(credit_card_number: '1234123412341234', credit_card_expiration_date: '11/22', result: 'success')
 transaction_8 = invoice_1.transactions.create!(credit_card_number: '1234123412341234', credit_card_expiration_date: '11/22', result: 'success')
