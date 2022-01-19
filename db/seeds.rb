@@ -1,5 +1,5 @@
 merchant_1 = Merchant.create!(name: 'Billys Pet Rocks', status: 0)
-merchant_2 = Merchant.create!(name: 'Jimmy Pet Stones', status: 1)
+merchant_2 = Merchant.create!(name: 'Jimmy Pet Stones', status: 0)
 merchant_3 = Merchant.create!(name: 'Sallys Seashells', status: 1)
 
 discount_1 = merchant_1.bulk_discounts.create!(percent_discount: 0.20, quantity_threshold: 2)
@@ -54,10 +54,10 @@ transaction_6 = invoice_6.transactions.create!(credit_card_number: '123412341234
 transaction_7 = invoice_7.transactions.create!(credit_card_number: '1234123412341234', credit_card_expiration_date: '11/22', result: 'success')
 
 invoice_item_1 = InvoiceItem.create!(invoice_id: invoice_1.id, item_id: item_1.id, quantity: 10, unit_price: 50, status: 'shipped')
-invoice_item_2 = InvoiceItem.create!(invoice_id: invoice_2.id, item_id: item_2.id, quantity: 1, unit_price: 50, status: 'packaged')
-invoice_item_3 = InvoiceItem.create!(invoice_id: invoice_3.id, item_id: item_3.id, quantity: 1, unit_price: 50, status: 'pending', created_at: Time.new(2021))
-invoice_item_4 = InvoiceItem.create!(invoice_id: invoice_4.id, item_id: item_4.id, quantity: 1, unit_price: 50, status: 'pending', created_at: Time.new(2020))
-invoice_item_5 = InvoiceItem.create!(invoice_id: invoice_5.id, item_id: item_5.id, quantity: 1, unit_price: 50, status: 'pending', created_at: Time.new(2019))
+invoice_item_2 = InvoiceItem.create!(invoice_id: invoice_1.id, item_id: item_2.id, quantity: 9, unit_price: 50, status: 'packaged')
+invoice_item_3 = InvoiceItem.create!(invoice_id: invoice_1.id, item_id: item_3.id, quantity: 8, unit_price: 50, status: 'pending', created_at: Time.new(2021))
+invoice_item_4 = InvoiceItem.create!(invoice_id: invoice_1.id, item_id: item_4.id, quantity: 7, unit_price: 50, status: 'pending', created_at: Time.new(2020))
+invoice_item_5 = InvoiceItem.create!(invoice_id: invoice_5.id, item_id: item_5.id, quantity: 5, unit_price: 50, status: 'pending', created_at: Time.new(2019))
 invoice_item_6 = InvoiceItem.create!(invoice_id: invoice_6.id, item_id: item_6.id, quantity: 1, unit_price: 50, status: 'pending', created_at: Time.new(2018))
 invoice_item_7 = InvoiceItem.create!(invoice_id: invoice_7.id, item_id: item_7.id, quantity: 25, unit_price: 50, status: 'shipped')
 invoice_item_8 = InvoiceItem.create!(invoice_id: invoice_7.id, item_id: item_8.id, quantity: 25, unit_price: 50, status: 'shipped')
