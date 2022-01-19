@@ -4,6 +4,10 @@ describe 'Admin Invoices Index Page' do
   before :each do
     @m1 = Merchant.create!(name: 'Merchant 1')
 
+    @discount_1 = @m1.bulk_discounts.create!(percent_discount: 0.20, quantity_threshold: 10)
+    @discount_2 = @m1.bulk_discounts.create!(percent_discount: 0.30, quantity_threshold: 15)
+    @discount_3 = @m1.bulk_discounts.create!(percent_discount: 0.35, quantity_threshold: 20)
+
     @c1 = Customer.create!(first_name: 'Yo', last_name: 'Yoz', address: '123 Heyyo', city: 'Whoville', state: 'CO', zip: 12345)
     @c2 = Customer.create!(first_name: 'Hey', last_name: 'Heyz')
 
@@ -13,7 +17,7 @@ describe 'Admin Invoices Index Page' do
     @item_1 = Item.create!(name: 'test', description: 'lalala', unit_price: 6, merchant_id: @m1.id)
     @item_2 = Item.create!(name: 'rest', description: 'dont test me', unit_price: 12, merchant_id: @m1.id)
 
-    @ii_1 = InvoiceItem.create!(invoice_id: @i1.id, item_id: @item_1.id, quantity: 12, unit_price: 2, status: 0)
+    @ii_1 = InvoiceItem.create!(invoice_id: @i1.id, item_id: @item_1.id, quantity: 15, unit_price: 2, status: 0)
     @ii_2 = InvoiceItem.create!(invoice_id: @i1.id, item_id: @item_2.id, quantity: 6, unit_price: 1, status: 1)
     @ii_3 = InvoiceItem.create!(invoice_id: @i2.id, item_id: @item_2.id, quantity: 87, unit_price: 12, status: 2)
 
@@ -68,5 +72,9 @@ describe 'Admin Invoices Index Page' do
       expect(current_path).to eq(admin_invoice_path(@i1))
       expect(@i1.status).to eq('complete')
     end
+  end
+
+  it 'displays discounted total revenue for the invoice' do
+    expect(page).to have_content("Discounted Total Revenue: $#{@i1.bd_total_revenue}")
   end
 end
