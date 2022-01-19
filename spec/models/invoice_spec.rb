@@ -38,7 +38,7 @@ RSpec.describe Invoice, type: :model do
       @discount_3 = @merchant1.bulk_discounts.create!(percent_discount: 0.35, quantity_threshold: 20)
       @discount_4 = @merchant1.bulk_discounts.create!(percent_discount: 0.40, quantity_threshold: 25)
 
-      expect(@invoice_1.discount_amount).to eq(0.30)
+      expect(@invoice_1.discounted).to eq([@ii_1, @ii_11])
     end
 
     it "bd_total_revenue" do
@@ -55,7 +55,7 @@ RSpec.describe Invoice, type: :model do
       @discount_3 = @merchant1.bulk_discounts.create!(percent_discount: 0.35, quantity_threshold: 20)
       @discount_4 = @merchant1.bulk_discounts.create!(percent_discount: 0.40, quantity_threshold: 25)
 
-      expect(@invoice_1.bd_total_revenue).to eq(91)
+      expect(@invoice_1.bd_total_revenue).to eq(95)
     end
   end
 end
