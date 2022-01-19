@@ -33,15 +33,3 @@ class Invoice < ApplicationRecord
   end
 
 end
-
-# #write test
-# def filter_doubles
-#   ii_unique = Hash.new(0)
-#
-#   discount_amount.each do |ii|
-#     if !ii_unique.keys.find {|k| k == discount[0]}
-#       ii_unique[ii] = ii.discount
-#     end
-#   end
-#   ii_unique
-# end
