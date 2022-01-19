@@ -1,4 +1,4 @@
-# Little Esty Shop
+# Little Esty Shop Bulk Discounts
 [Assignment prompt](https://backend.turing.edu/module2/projects/bulk_discounts)
 This project is an extension to little-esty-shop, building out a BulkDiscount table and features that allow merchants to provide discounts on items bought in bulk. Learning goals for this project are practicing MVC and RESTful routing conventions, and becoming comfortable with building out basic features in Rails apps. 
 
