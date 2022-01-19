@@ -13,7 +13,7 @@ More:
 
 ## Ruby Gems
 
-![closed pull requests badge](https://img.shields.io/github/issues-pr-closed/dylan-harper/little-esty-shop_bulk_discounts?color=blue)
+![closed pull requests badge](https://img.shields.io/github/issues-pr-closed/dylan-harper/little_esty_shop_bulk_discounts?color=blue)
 ![pry v badge](https://img.shields.io/gem/v/pry?color=blue&label=pry)
 ![capybara v badge](https://img.shields.io/gem/v/capybara?color=cyan&label=capybara)
 ![shoulda-matchers v badge](https://img.shields.io/gem/v/shoulda-matchers?label=shoulda-matchers)
