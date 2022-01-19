@@ -14,7 +14,10 @@ RSpec.describe 'bulk discount new page' do
     click_button
 
     expect(current_path).to eq(merchant_bulk_discounts_path(@m1))
-    expect(page).to have_content(0.55)
-    expect(page).to have_content(30)
+
+    within("#bulk-discounts") do
+      expect(page).to have_content(0.55)
+      expect(page).to have_content(30)
+    end
   end
 end
